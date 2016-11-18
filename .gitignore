@@ -1,0 +1,6 @@
+*.d
+*.o
+.settings/
+Debug/
+Release/
+RemoteSystemsTempFiles/
