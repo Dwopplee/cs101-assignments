@@ -10,8 +10,6 @@
 
 using namespace std;
 
-//incomplete, working on problem 21
-
 int main(){
 	vector<int> scores;
 	vector<string> names;
@@ -52,15 +50,13 @@ int main(){
 							if(check2=="name"){
 								cout<<"Please input the name.\n";
 								cin>>name;
-								num=0;
-								for(num=0;num<names.size();num++){
-									if(name==names[num]){
-										cout<<scores[num];
+								for(num=1;num<=names.size();num++){
+									if(name==names[num-1]){
+										cout<<scores[num-1]<<"\n";
 										break;
 									}
 									else if(num==names.size()){
 										cout<<"Name not found.\n";
-										break;
 									}
 								}
 								break;
@@ -68,35 +64,34 @@ int main(){
 							else if(check2=="score"){
 								cout<<"Please input the score.\n";
 								cin>>score;
-								for(num=0;num<scores.size();num++){
-									if(score==scores[num]){
-										cout<<names[num]<<"\n";
-										vector<string> scoreCheck;
-										scoreCheck.push_back(names[num]);
+								for(num=1;num<=scores.size();num++){
+									vector<string> scoreCheck;
+									if(score==scores[num-1]){
+										cout<<names[num-1]<<"\n";
+										scoreCheck.push_back(names[num-1]);
 									}
-									// else if(num==scores.size()&&scoreCheck.size()==0){
-
-									//}
+									else if(num==scores.size()&&scoreCheck.size()==0){
+										cout<<"Score not found.\n";
+										break;
+									}
+									else if(num==scores.size()){
+										break;
+									}
 								}
 								break;
 							}
 							else{
-								cout<<"Plese type 'name' or 'score'.\n";
+								cout<<"Please type 'name' or 'score'.\n";
+								cin>>check2;
 							}
 						}
 					}
 					else if(check=="new"){
 						break;
 					}
-					else{
-						cout<<"Please type 'previous' or 'new'.\n";
-					}
-					break;
 				}
-				break;
 			}
 		}
 		cin>>name>>score;
 	}
 }
-
